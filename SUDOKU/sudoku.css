@@ -1,0 +1,104 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(9, 40px);
+  grid-template-rows: repeat(9, 40px);
+  gap: 0;
+  background: white;
+  border: 2px solid black;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.cell:read-only {
+  background: #e0e0e0;
+  font-weight: bold;
+}
+
+.cell:focus {
+  background: #ffffcc;
+}
+
+/* Highlight entire 3x3 grid borders */
+.cell:nth-child(3n+1) {
+  border-left: 2px solid black;
+}
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54),
+.cell:nth-child(n+73):nth-child(-n+81) {
+  border-bottom: 2px solid black;
+}
+
+.cell:nth-child(-n+9) {
+  border-top: 2px solid black;
+}
+
+.highlight {
+  background-color: #d1f7d1 !important;
+}
+
+.error {
+  background-color: #f8d7da !important;
+}
+
+.num-pad {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.num-btn {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  font-size: 18px;
+  background: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.num-btn.used {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+#message {
+  font-size: 18px;
+  margin: 10px;
+  color: green;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
